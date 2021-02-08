@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:easy_tempo/cubit/search_cubit.dart';
 import 'package:easy_tempo/models/jira_issue.dart';
 import 'package:dio/dio.dart';
@@ -60,7 +62,7 @@ class TempoRepository {
 
   Future<List<NormalIssue>> searchJiraTicket(SearchType type, String searchText,
       {int maxResult = 25, Map<String, String> headers}) async {
-    List<NormalIssue> result;
+    List<NormalIssue> result = List<NormalIssue>();
     String jql;
     switch (type) {
       case SearchType.recent:
@@ -75,6 +77,17 @@ class TempoRepository {
         print(itemNames);
         jql =
             'project in projectsWhereUserHasPermission("Work on issues")$itemNames';
+
+        items
+            .where((item) =>
+                item.issue.summary.contains(searchText) ||
+                item.issue.key.contains(searchText))
+            .map((item) {
+          NormalIssue issue = item.toNormalIssue();
+          if (result.every((i) => i.key != issue.key)) {
+            result.add(issue);
+          }
+        }).toList();
         break;
       case SearchType.favourites:
         List<String> favorites = await tempoServiceProvider.getFavourites();

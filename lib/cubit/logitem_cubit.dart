@@ -3,6 +3,7 @@ import 'package:easy_tempo/models/log_item.dart/description.dart';
 import 'package:easy_tempo/models/log_item.dart/log_date.dart';
 import 'package:easy_tempo/models/log_item.dart/log_hour.dart';
 import 'package:easy_tempo/models/log_item.dart/log_minute.dart';
+import 'package:easy_tempo/models/log_item.dart/ticket_id.dart';
 import 'package:easy_tempo/models/tempo_log_item.dart';
 import 'package:easy_tempo/repository/tempoRepository.dart';
 import 'package:equatable/equatable.dart';

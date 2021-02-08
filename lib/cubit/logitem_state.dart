@@ -2,6 +2,7 @@ part of 'logitem_cubit.dart';
 
 class LogItemState extends Equatable {
   const LogItemState({
+    this.ticketId = const TicketId.pure(),
     this.description = const Description.pure(),
     this.logHour = const LogHour.pure(),
     this.logMinute = const LogMinute.pure(),
@@ -9,6 +10,7 @@ class LogItemState extends Equatable {
     this.status = FormzStatus.pure,
   });
 
+  final TicketId ticketId;
   final Description description;
   final LogHour logHour;
   final LogMinute logMinute;
@@ -16,6 +18,7 @@ class LogItemState extends Equatable {
   final FormzStatus status;
 
   LogItemState copyWith({
+    TicketId ticketId,
     Description description,
     LogHour logHour,
     LogMinute logMinute,
@@ -23,6 +26,7 @@ class LogItemState extends Equatable {
     FormzStatus status,
   }) {
     LogItemState state = LogItemState(
+      ticketId: ticketId ?? this.ticketId,
       description: description ?? this.description,
       logHour: logHour ?? this.logHour,
       logMinute: logMinute ?? this.logMinute,
@@ -34,5 +38,6 @@ class LogItemState extends Equatable {
   }
 
   @override
-  List<Object> get props => [description, logHour, logMinute, logDate, status];
+  List<Object> get props =>
+      [ticketId, description, logHour, logMinute, logDate, status];
 }

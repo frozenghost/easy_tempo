@@ -12,6 +12,7 @@ Function onGenerateRoute = (RouteSettings settings) {
     "/timesheet": (ctx) => TimeSheetPage(),
     "/settings/language": (ctx) => LanguagePage(),
     "/newitem": (_) => LogItemPage(),
+    "/ticketsearch": (_) => TicketSearchPage(),
     "/": (ctx) => HomePage(),
   };
   WidgetBuilder builder = routes[settings.name];

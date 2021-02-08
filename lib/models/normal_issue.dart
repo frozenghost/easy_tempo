@@ -10,4 +10,9 @@ class NormalIssue {
   final String iconPath;
   final String summary;
   final int id;
+
+  @override
+  String toString() {
+    return 'Issues(id: $id, key: $key)';
+  }
 }

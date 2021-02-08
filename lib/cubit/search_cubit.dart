@@ -26,8 +26,8 @@ class SearchCubit extends Cubit<SearchState> {
 
   Future<void> search() async {
     emit(state.copyWith(status: PageStatus.loading));
-    List<NormalIssue> result =
-        await _tempoRepository.searchJiraTicket(state.type, state.searchText);
+    List<NormalIssue> result = await _tempoRepository.searchJiraTicket(
+        SearchType.recent, state.searchText);
     emit(state.copyWith(issues: result, status: PageStatus.success));
   }
 }

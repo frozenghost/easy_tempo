@@ -4,6 +4,7 @@ import 'package:easy_tempo/widgets/description_input.dart';
 import 'package:easy_tempo/widgets/log_date_input.dart';
 import 'package:easy_tempo/widgets/log_hour_input.dart';
 import 'package:easy_tempo/widgets/log_minute_input.dart';
+import 'package:easy_tempo/widgets/ticket_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -29,6 +30,7 @@ class _LogItemPageState extends State<LogItemPage> {
               padding: const EdgeInsets.all(15.0),
               child: Column(
                 children: [
+                  TicketInput(),
                   DescriptionInput(),
                   Padding(
                     padding: const EdgeInsets.only(

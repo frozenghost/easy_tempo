@@ -87,41 +87,41 @@ class _TicketSearchPageState extends State<TicketSearchPage> {
             ),
           ),
         ),
-        bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-          backgroundColor: bottomNavigationBarThemeData.backgroundColor,
-          itemCount: navigationIcons.length,
-          tabBuilder: (int index, bool isActive) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(navigationIcons.keys.elementAt(index),
-                    size: 24,
-                    color: isActive
-                        ? bottomNavigationBarThemeData.selectedIconTheme?.color
-                        : bottomNavigationBarThemeData
-                            .unselectedIconTheme?.color),
-                SizedBox(height: 4),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(
-                    navigationIcons.values.elementAt(index),
-                    maxLines: 1,
-                    style: isActive
-                        ? bottomNavigationBarThemeData.selectedLabelStyle
-                        : bottomNavigationBarThemeData.unselectedLabelStyle,
-                  ).tr(),
-                )
-              ],
-            );
-          },
-          activeIndex: state.type.index,
-          splashSpeedInMilliseconds: 0,
-          gapLocation: GapLocation.center,
-          onTap: (index) {
-            context.read<SearchCubit>().switchType(SearchType.values[index]);
-          },
-        ),
+        // bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+        //   backgroundColor: bottomNavigationBarThemeData.backgroundColor,
+        //   itemCount: navigationIcons.length,
+        //   tabBuilder: (int index, bool isActive) {
+        //     return Column(
+        //       mainAxisSize: MainAxisSize.min,
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [
+        //         Icon(navigationIcons.keys.elementAt(index),
+        //             size: 24,
+        //             color: isActive
+        //                 ? bottomNavigationBarThemeData.selectedIconTheme?.color
+        //                 : bottomNavigationBarThemeData
+        //                     .unselectedIconTheme?.color),
+        //         SizedBox(height: 4),
+        //         Padding(
+        //           padding: const EdgeInsets.symmetric(horizontal: 8),
+        //           child: Text(
+        //             navigationIcons.values.elementAt(index),
+        //             maxLines: 1,
+        //             style: isActive
+        //                 ? bottomNavigationBarThemeData.selectedLabelStyle
+        //                 : bottomNavigationBarThemeData.unselectedLabelStyle,
+        //           ).tr(),
+        //         )
+        //       ],
+        //     );
+        //   },
+        //   activeIndex: state.type.index,
+        //   splashSpeedInMilliseconds: 0,
+        //   gapLocation: GapLocation.center,
+        //   onTap: (index) {
+        //     context.read<SearchCubit>().switchType(SearchType.values[index]);
+        //   },
+        // ),
       );
     });
   }
@@ -164,12 +164,9 @@ class _TicketSearchPageState extends State<TicketSearchPage> {
                         maxLines: 1,
                         style: TextStyle(color: Theme.of(context).primaryColor),
                       ),
-                      leading: SvgPicture.network(
-                        state.issues[index].iconPath,
-                        placeholderBuilder: (BuildContext context) => Container(
-                            padding: const EdgeInsets.all(5.0),
-                            child: const CircularProgressIndicator()),
-                        excludeFromSemantics: true,
+                      leading: Icon(
+                        FontAwesomeIcons.ticketAlt,
+                        color: Colors.blue.shade400,
                       ),
                     ),
                   );
