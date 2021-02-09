@@ -8,9 +8,13 @@ class LogItemState extends Equatable {
     this.logMinute = const LogMinute.pure(),
     this.logDate = const LogDate.pure(),
     this.status = FormzStatus.pure,
+    this.key,
+    this.summary,
   });
 
   final TicketId ticketId;
+  final String key;
+  final String summary;
   final Description description;
   final LogHour logHour;
   final LogMinute logMinute;
@@ -19,6 +23,8 @@ class LogItemState extends Equatable {
 
   LogItemState copyWith({
     TicketId ticketId,
+    String key,
+    String summary,
     Description description,
     LogHour logHour,
     LogMinute logMinute,
@@ -27,6 +33,8 @@ class LogItemState extends Equatable {
   }) {
     LogItemState state = LogItemState(
       ticketId: ticketId ?? this.ticketId,
+      key: key ?? this.key,
+      summary: summary ?? this.summary,
       description: description ?? this.description,
       logHour: logHour ?? this.logHour,
       logMinute: logMinute ?? this.logMinute,
@@ -38,6 +46,14 @@ class LogItemState extends Equatable {
   }
 
   @override
-  List<Object> get props =>
-      [ticketId, description, logHour, logMinute, logDate, status];
+  List<Object> get props => [
+        ticketId,
+        key,
+        summary,
+        description,
+        logHour,
+        logMinute,
+        logDate,
+        status,
+      ];
 }

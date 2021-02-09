@@ -39,6 +39,8 @@ class TempoServiceProvider extends BaseServiceProvider {
     defaultTempoHeaders['Authorization'] = 'Bearer $_tempoToken';
   }
 
+  static String getCurrentAccountId() => _accountId;
+
   Future<Response> logTime() {}
 
   // Future<JqlResult> getIssueByJQL(String jql, String jqlQuery,
@@ -102,6 +104,15 @@ class TempoServiceProvider extends BaseServiceProvider {
         ?.first;
 
     return result;
+  }
+
+  Future<void> submitItem(TempoLogItem item,
+      {Map<String, String> headers}) async {
+    if (headers != null) {
+      defaultTempoHeaders.addAll(headers);
+    }
+    Map<String, dynamic> postData = item.toJson();
+    await super.post('$workLogApi/', defaultTempoHeaders, postData);
   }
 
   // Future<JiraIssue> getIssues(

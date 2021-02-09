@@ -4,6 +4,7 @@ import 'package:easy_tempo/widgets/description_input.dart';
 import 'package:easy_tempo/widgets/log_date_input.dart';
 import 'package:easy_tempo/widgets/log_hour_input.dart';
 import 'package:easy_tempo/widgets/log_minute_input.dart';
+import 'package:easy_tempo/widgets/submit_button.dart';
 import 'package:easy_tempo/widgets/ticket_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
@@ -82,10 +83,7 @@ class _LogItemPageState extends State<LogItemPage> {
                   Row(
                     children: [
                       Expanded(
-                        child: RaisedButton(
-                          child: Text('Submit'),
-                          onPressed: () {},
-                        ),
+                        child: SubmitButton(),
                       ),
                     ],
                   ),

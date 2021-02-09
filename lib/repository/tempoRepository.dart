@@ -60,6 +60,10 @@ class TempoRepository {
     return tempoLogItem;
   }
 
+  Future<void> submit(TempoLogItem item) async {
+    await tempoServiceProvider.submitItem(item);
+  }
+
   Future<List<NormalIssue>> searchJiraTicket(SearchType type, String searchText,
       {int maxResult = 25, Map<String, String> headers}) async {
     List<NormalIssue> result = List<NormalIssue>();

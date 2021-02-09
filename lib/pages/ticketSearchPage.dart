@@ -168,6 +168,8 @@ class _TicketSearchPageState extends State<TicketSearchPage> {
                         FontAwesomeIcons.ticketAlt,
                         color: Colors.blue.shade400,
                       ),
+                      onTap: () =>
+                          Navigator.of(context).pop(state.issues[index]),
                     ),
                   );
                 }),
