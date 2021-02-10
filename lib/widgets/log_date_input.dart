@@ -19,7 +19,7 @@ class LogDateInput extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                formatDate(DateTime.now(), [yyyy, '-', mm, '-', dd]),
+                formatDate(state.logDate.value, [yyyy, '-', mm, '-', dd]),
                 key: const Key('form_logDateInput_field'),
               ),
               FlatButton(
@@ -28,9 +28,9 @@ class LogDateInput extends StatelessWidget {
                   DatePicker.showDatePicker(
                     context,
                     showTitleActions: true,
-                    minTime: DateTime.now().add(Duration(days: -30)),
-                    maxTime: DateTime.now().add(Duration(days: 30)),
-                    currentTime: DateTime.now(),
+                    minTime: state.logDate.value.add(Duration(days: -30)),
+                    maxTime: state.logDate.value.add(Duration(days: 30)),
+                    currentTime: state.logDate.value,
                     locale: locale == 'en-US' ? LocaleType.en : LocaleType.zh,
                   ).then(
                     (value) => context

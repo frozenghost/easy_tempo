@@ -13,7 +13,7 @@ class SubmitButton extends StatelessWidget {
             ? const CircularProgressIndicator()
             : RaisedButton(
                 color: Theme.of(context).primaryColor,
-                key: const Key('loginForm_continue_raisedButton'),
+                key: const Key('logForm_raisedButton'),
                 child: const Text('Submit'),
                 onPressed: state.status.isValidated
                     ? () {

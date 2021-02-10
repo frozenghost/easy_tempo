@@ -66,7 +66,12 @@ class LogItemCubit extends Cubit<LogItemState> {
       timeSpentSeconds: seconds,
       billableSeconds: seconds,
       comment: state.description.value,
-      started: state.logDate.value.toIso8601String(),
+      started: DateTime(
+        state.logDate.value.year,
+        state.logDate.value.month,
+        state.logDate.value.day,
+        state.logDate.value.hour,
+      ).toIso8601String(),
       issue: Issue(id: state.ticketId.value),
       originTaskId: state.ticketId.value,
       workerId: TempoServiceProvider.getCurrentAccountId(),

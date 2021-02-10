@@ -1,5 +1,8 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:easy_tempo/cubit/tabnavigation_cubit.dart';
+import 'package:easy_tempo/cubit/tempoweek_cubit.dart';
+import 'package:easy_tempo/models/tempo_log_item.dart';
+import 'package:easy_tempo/pages/logItemPage.dart';
 import 'package:easy_tempo/pages/settingsPage.dart';
 import 'package:easy_tempo/pages/sprintPage.dart';
 import 'package:easy_tempo/pages/timeSheetPage.dart';
@@ -45,14 +48,26 @@ class _HomePageState extends State<HomePage> {
             ? Colors.grey.shade300
             : Theme.of(context).scaffoldBackgroundColor,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/newitem');
+        floatingActionButton: BlocBuilder<TempoWeekCubit, TempoWeekState>(
+          builder: (context, state) {
+            return FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (BuildContext context) {
+                    return LogItemPage(
+                      date: state.date,
+                    );
+                  }),
+                );
+              },
+              child: Icon(
+                FontAwesomeIcons.plus,
+                color: Theme.of(context).textTheme.bodyText1.color,
+              ),
+              backgroundColor: Theme.of(context).primaryColor,
+            );
           },
-          child: Icon(
-            FontAwesomeIcons.plus,
-            color: Theme.of(context).textTheme.bodyText1.color,
-          ),
         ),
         bottomNavigationBar: AnimatedBottomNavigationBar.builder(
           backgroundColor: bottomNavigationBarThemeData.backgroundColor,

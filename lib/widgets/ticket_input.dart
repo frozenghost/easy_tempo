@@ -11,7 +11,7 @@ class TicketInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.ticketId != current.ticketId,
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+          padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
           child: Container(
             height: 50.0,
             width: double.infinity,
@@ -27,7 +27,7 @@ class TicketInput extends StatelessWidget {
                   if (value != null) {
                     NormalIssue issue = (value as NormalIssue);
                     context.read<LogItemCubit>().changeLogItem(
-                          ticketId: issue.id,
+                          ticketId: issue.originalTaskId,
                           key: issue.key,
                         );
                   }

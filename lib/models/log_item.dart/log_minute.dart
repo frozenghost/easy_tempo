@@ -3,7 +3,7 @@ import 'package:formz/formz.dart';
 enum LogMinuteValidationError { empty }
 
 class LogMinute extends FormzInput<int, LogMinuteValidationError> {
-  const LogMinute.pure() : super.pure(null);
+  const LogMinute.pure() : super.pure(0);
   const LogMinute.dirty([int value]) : super.dirty(value);
 
   @override

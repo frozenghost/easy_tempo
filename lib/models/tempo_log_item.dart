@@ -88,6 +88,7 @@ class TempoLogItem extends Equatable {
       id: this.jiraWorklogId,
       key: this.issue.key,
       summary: this.issue.summary,
+      originalTaskId: this.originTaskId,
     );
   }
 
