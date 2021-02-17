@@ -16,6 +16,8 @@ class LogHourInput extends StatelessWidget {
                 width: 25.0,
                 child: TextField(
                   key: const Key('form_logHourInput_textField'),
+                  controller: TextEditingController.fromValue(
+                      TextEditingValue(text: state.logHour.value?.toString())),
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   decoration: InputDecoration(

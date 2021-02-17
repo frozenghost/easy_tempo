@@ -16,6 +16,8 @@ class DescriptionInput extends StatelessWidget {
         return Container(
           child: TextField(
             key: const Key('form_descriptionInput_textField'),
+            controller: TextEditingController.fromValue(
+                TextEditingValue(text: state.description.value)),
             maxLines: 4,
             decoration: InputDecoration(
               labelText: 'Description',

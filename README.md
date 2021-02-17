@@ -9,9 +9,10 @@ To-do List:
 - [ ] User Login
 - [x] Date-chosen component
 - [x] List of worklog item
-- [ ] Create/Edit/Delete worklog
+- [x] Create/Edit/Delete worklog
+- [ ] Copy/move worklog
 - [ ] Speech recognition
-- [ ] Query recent logged item/Query items for the current sprint
+- [x] Query recent logged item
 - [x] Theme details
 - [x] Dark/Light theme switch
 - [ ] Monthly summary
@@ -19,4 +20,6 @@ To-do List:
 - [ ] Exception handle
 - [ ] Screens(Start, error, no item, setting)
 - [ ] Http request cancellation
-- [ ] Log item detail
+- [x] Log item detail
+- [ ] Holiday auto fullfill
+- [ ] Weekly submit reminder

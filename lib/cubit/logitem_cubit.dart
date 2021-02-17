@@ -79,4 +79,8 @@ class LogItemCubit extends Cubit<LogItemState> {
     await _tempoRepository.submit(item);
     toast(tr('Success'));
   }
+
+  void clearItem() {
+    emit(state.copyWith());
+  }
 }

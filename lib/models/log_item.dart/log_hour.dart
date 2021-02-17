@@ -8,6 +8,8 @@ class LogHour extends FormzInput<int, LogHourValidationError> {
 
   @override
   LogHourValidationError validator(int value) {
-    return value >= 0 && value <= 24 ? null : LogHourValidationError.empty;
+    return value != null && value >= 0 && value <= 24
+        ? null
+        : LogHourValidationError.empty;
   }
 }

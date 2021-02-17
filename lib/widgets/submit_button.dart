@@ -18,6 +18,7 @@ class SubmitButton extends StatelessWidget {
                 onPressed: state.status.isValidated
                     ? () {
                         context.read<LogItemCubit>().submit();
+                        Navigator.pop(context, 'Refresh');
                       }
                     : null,
               );

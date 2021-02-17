@@ -59,7 +59,11 @@ class _HomePageState extends State<HomePage> {
                       date: state.date,
                     );
                   }),
-                );
+                ).then((result) {
+                  if (result == "Refresh") {
+                    context.read<TempoWeekCubit>().refreshWorklog();
+                  }
+                });
               },
               child: Icon(
                 FontAwesomeIcons.plus,

@@ -17,6 +17,8 @@ class LogMinuteInput extends StatelessWidget {
                 child: TextField(
                   key: const Key('form_logMinuteInput_textField'),
                   keyboardType: TextInputType.number,
+                  controller: TextEditingController.fromValue(TextEditingValue(
+                      text: state.logMinute.value?.toString())),
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   decoration: InputDecoration(
                     border: InputBorder.none,

@@ -29,6 +29,7 @@ class TicketInput extends StatelessWidget {
                     context.read<LogItemCubit>().changeLogItem(
                           ticketId: issue.originalTaskId,
                           key: issue.key,
+                          description: 'Work on issue ${issue.key}',
                         );
                   }
                 });
