@@ -3,7 +3,7 @@ import 'package:formz/formz.dart';
 enum LogHourValidationError { empty }
 
 class LogHour extends FormzInput<int, LogHourValidationError> {
-  const LogHour.pure() : super.pure(null);
+  const LogHour.pure() : super.pure(0);
   const LogHour.dirty([int value]) : super.dirty(value);
 
   @override

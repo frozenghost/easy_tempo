@@ -16,8 +16,8 @@ class SubmitButton extends StatelessWidget {
                 key: const Key('logForm_raisedButton'),
                 child: const Text('Submit'),
                 onPressed: state.status.isValidated
-                    ? () {
-                        context.read<LogItemCubit>().submit();
+                    ? () async {
+                        await context.read<LogItemCubit>().submit();
                         Navigator.pop(context, 'Refresh');
                       }
                     : null,

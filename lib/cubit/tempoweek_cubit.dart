@@ -68,6 +68,9 @@ class TempoWeekCubit extends HydratedCubit<TempoWeekState> {
   }
 
   Future<void> refreshWorklog() async {
+    if (state.status != PageStatus.loading) {
+      emit(state.copyWith(status: PageStatus.loading));
+    }
     try {
       final worklogItems = await _tempoRepository.getWorkLogByDay(state.date);
 

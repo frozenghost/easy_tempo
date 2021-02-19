@@ -19,7 +19,9 @@ class LogDateInput extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                formatDate(state.logDate.value, [yyyy, '-', mm, '-', dd]),
+                state.logDate.value == null
+                    ? ''
+                    : formatDate(state.logDate.value, [yyyy, '-', mm, '-', dd]),
                 key: const Key('form_logDateInput_field'),
               ),
               FlatButton(
